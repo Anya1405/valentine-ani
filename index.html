@@ -4,22 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anushka ❤️ Anirudh</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Collage background (only visible on layer 1) -->
+    <!-- Backgrounds -->
     <div id="collageBg" class="collage-bg" aria-hidden="true"></div>
-
-    <!-- Soft dark pattern background (used on other layers) -->
     <div id="darkBg" class="dark-bg" aria-hidden="true"></div>
 
-    <!-- ========== LAYER 1: ASK ========== -->
+    <!-- LAYER 1: ASK -->
     <section class="layer active" id="layer-ask">
       <div class="center-card">
-        <h1 class="title">
-          Anirudh, will you be my Valentine? 💘
-        </h1>
-        <p class="subtitle">I have a little journey for you…</p>
+        <h1 class="title">Anirudh, will you be my Valentine? 💘</h1>
+        <p class="subtitle">I made a cute little journey for you 😌</p>
 
         <div class="btn-row">
           <button class="btn btn-primary" id="btnYes">Yes 💖</button>
@@ -30,49 +26,48 @@
       </div>
     </section>
 
-    <!-- ========== LAYER 2: WHY ME ========== -->
+    <!-- LAYER 2: WHY ME -->
     <section class="layer" id="layer-whyme">
       <div class="page">
         <h2 class="page-title">WHY ME? 🥺</h2>
         <p class="page-subtitle">Hover the cards</p>
 
         <div class="grid grid-4">
-          <!-- image -->
+          <div class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-front">Because I'am you cutu baccha ❤️ and I love you so much 😘</div>
+              <div class="flip-back">
+                <img id="whyme-img1" alt="Why me 1" />
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-front">You enjoy my company 😂💕</div>
+              <div class="flip-back">
+                <video id="whyme-vid2" muted loop playsinline preload="metadata"></video>
+              </div>
+            </div>
+          </div>
+
           <div class="flip-card">
             <div class="flip-inner">
               <div class="flip-front"></div>
               <div class="flip-back">
-                <img src="assets/whyme/card1.jpg" alt="Memory 1" />
+                <img id="whyme-img3" alt="Why me 3" />
               </div>
             </div>
           </div>
 
-          <!-- video -->
           <div class="flip-card">
             <div class="flip-inner">
-              <div class="flip-front">Card 2</div>
+              <div class="flip-front">Fact that I'll always be there for
+                 you, will always support you 💖
+                and I promise you to take care of you and 
+                love you even after death aparts us 🧿</div>
               <div class="flip-back">
-                <video src="assets/whyme/card2.mp4" muted loop playsinline></video>
-              </div>
-            </div>
-          </div>
-
-          <!-- image -->
-          <div class="flip-card">
-            <div class="flip-inner">
-              <div class="flip-front">Card 3</div>
-              <div class="flip-back">
-                <img src="assets/whyme/card3.jpg" alt="Memory 3" />
-              </div>
-            </div>
-          </div>
-
-          <!-- video -->
-          <div class="flip-card">
-            <div class="flip-inner">
-              <div class="flip-front">Card 4</div>
-              <div class="flip-back">
-                <video src="assets/whyme/card4.mp4" muted loop playsinline></video>
+                <video id="whyme-vid4" muted loop playsinline preload="metadata"></video>
               </div>
             </div>
           </div>
@@ -86,53 +81,28 @@
       </div>
     </section>
 
-    <!-- ========== LAYER 3: WHY ONLY ANIRUDH ========== -->
+    <!-- LAYER 3: WHY ONLY -->
     <section class="layer" id="layer-whyonly">
       <div class="page">
         <h2 class="page-title">WHY ONLY ANIRUDH? 😌</h2>
         <p class="page-subtitle">Hover the cards</p>
 
         <div class="grid grid-6">
-          <div class="flip-card"><div class="flip-inner">
-            <div class="flip-front">1</div>
-            <div class="flip-back"><img src="assets/whyonly/c1.jpg" alt="Why 1" /></div>
-          </div></div>
-
-          <div class="flip-card"><div class="flip-inner">
-            <div class="flip-front">2</div>
-            <div class="flip-back"><video src="assets/whyonly/c2.mp4" muted loop playsinline></video></div>
-          </div></div>
-
-          <div class="flip-card"><div class="flip-inner">
-            <div class="flip-front">3</div>
-            <div class="flip-back"><img src="assets/whyonly/c3.jpg" alt="Why 3" /></div>
-          </div></div>
-
-          <div class="flip-card"><div class="flip-inner">
-            <div class="flip-front">4</div>
-            <div class="flip-back"><video src="assets/whyonly/c4.mp4" muted loop playsinline></video></div>
-          </div></div>
-
-          <div class="flip-card"><div class="flip-inner">
-            <div class="flip-front">5</div>
-            <div class="flip-back"><img src="assets/whyonly/c5.jpg" alt="Why 5" /></div>
-          </div></div>
-
-          <div class="flip-card"><div class="flip-inner">
-            <div class="flip-front">6</div>
-            <div class="flip-back"><video src="assets/whyonly/c6.mp4" muted loop playsinline></video></div>
-          </div></div>
+          <div class="flip-card"><div class="flip-inner"><div class="flip-front">You make me feel special and loved 💖</div><div class="flip-back"><img id="whyonly-img1" alt="Why only 1"></div></div></div>
+          <div class="flip-card"><div class="flip-inner"><div class="flip-front"></div><div class="flip-back"><video id="whyonly-vid2" muted loop playsinline preload="metadata"></video></div></div></div>
+          <div class="flip-card"><div class="flip-inner"><div class="flip-front">3</div><div class="flip-back"><img id="whyonly-img3" alt="Why only 3"></div></div></div>
+          <div class="flip-card"><div class="flip-inner"><div class="flip-front">4</div><div class="flip-back"><video id="whyonly-vid4" muted loop playsinline preload="metadata"></video></div></div></div>
+          <div class="flip-card"><div class="flip-inner"><div class="flip-front">5</div><div class="flip-back"><img id="whyonly-img5" alt="Why only 5"></div></div></div>
+          <div class="flip-card"><div class="flip-inner"><div class="flip-front">6</div><div class="flip-back"><video id="whyonly-vid6" muted loop playsinline preload="metadata"></video></div></div></div>
         </div>
 
         <div class="footer-cta">
-          <button class="btn btn-primary" data-next="layer-memories">
-            I’m Ready ✅
-          </button>
+          <button class="btn btn-primary" data-next="layer-memories">I’m Ready ✅</button>
         </div>
       </div>
     </section>
 
-    <!-- ========== LAYER 4: LET'S MAKE MEMORIES (PLAN) ========== -->
+    <!-- LAYER 4: PLAN -->
     <section class="layer" id="layer-memories">
       <div class="page">
         <h2 class="page-title">Let’s make memories 🗓️</h2>
@@ -157,52 +127,21 @@
       </div>
     </section>
 
-    <!-- ========== LAYER 5: OUR STORY (8 cards) ========== -->
+    <!-- LAYER 5: STORY -->
     <section class="layer" id="layer-story">
       <div class="page">
         <h2 class="page-title">Our story 📖</h2>
         <p class="page-subtitle">Hover the cards</p>
 
         <div class="grid grid-8">
-          <div class="flip-card"><div class="flip-inner">
-            <div class="flip-front">1</div>
-            <div class="flip-back"><img src="assets/story/s1.jpg" alt="Story 1" /></div>
-          </div></div>
-
-          <div class="flip-card"><div class="flip-inner">
-            <div class="flip-front">2</div>
-            <div class="flip-back"><video src="assets/story/s2.mp4" muted loop playsinline></video></div>
-          </div></div>
-
-          <div class="flip-card"><div class="flip-inner">
-            <div class="flip-front">3</div>
-            <div class="flip-back"><img src="assets/story/s3.jpg" alt="Story 3" /></div>
-          </div></div>
-
-          <div class="flip-card"><div class="flip-inner">
-            <div class="flip-front">4</div>
-            <div class="flip-back"><video src="assets/story/s4.mp4" muted loop playsinline></video></div>
-          </div></div>
-
-          <div class="flip-card"><div class="flip-inner">
-            <div class="flip-front">5</div>
-            <div class="flip-back"><img src="assets/story/s5.jpg" alt="Story 5" /></div>
-          </div></div>
-
-          <div class="flip-card"><div class="flip-inner">
-            <div class="flip-front">6</div>
-            <div class="flip-back"><video src="assets/story/s6.mp4" muted loop playsinline></video></div>
-          </div></div>
-
-          <div class="flip-card"><div class="flip-inner">
-            <div class="flip-front">7</div>
-            <div class="flip-back"><img src="assets/story/s7.jpg" alt="Story 7" /></div>
-          </div></div>
-
-          <div class="flip-card"><div class="flip-inner">
-            <div class="flip-front">8</div>
-            <div class="flip-back"><video src="assets/story/s8.mp4" muted loop playsinline></video></div>
-          </div></div>
+          <div class="flip-card"><div class="flip-inner"><div class="flip-front">1</div><div class="flip-back"><img id="story-img1" alt=""></div></div></div>
+          <div class="flip-card"><div class="flip-inner"><div class="flip-front">2</div><div class="flip-back"><video id="story-vid2" muted loop playsinline preload="metadata"></video></div></div></div>
+          <div class="flip-card"><div class="flip-inner"><div class="flip-front">3</div><div class="flip-back"><img id="story-img3" alt=""></div></div></div>
+          <div class="flip-card"><div class="flip-inner"><div class="flip-front">4</div><div class="flip-back"><video id="story-vid4" muted loop playsinline preload="metadata"></video></div></div></div>
+          <div class="flip-card"><div class="flip-inner"><div class="flip-front">5</div><div class="flip-back"><img id="story-img5" alt=""></div></div></div>
+          <div class="flip-card"><div class="flip-inner"><div class="flip-front">6</div><div class="flip-back"><video id="story-vid6" muted loop playsinline preload="metadata"></video></div></div></div>
+          <div class="flip-card"><div class="flip-inner"><div class="flip-front">7</div><div class="flip-back"><img id="story-img7" alt=""></div></div></div>
+          <div class="flip-card"><div class="flip-inner"><div class="flip-front">8</div><div class="flip-back"><video id="story-vid8" muted loop playsinline preload="metadata"></video></div></div></div>
         </div>
 
         <div class="footer-cta">
@@ -213,112 +152,37 @@
       </div>
     </section>
 
-    <!-- ========== LAYER 6: PLAYLIST ========== -->
+    <!-- LAYER 6: PLAYLIST -->
     <section class="layer" id="layer-playlist">
       <div class="page">
         <h2 class="page-title">Music time 🎧</h2>
-        <p class="page-subtitle">One for us… and one for me 😌</p>
 
         <div class="grid grid-2">
           <div class="card">
             <h3>Our playlist</h3>
-            <!-- Replace the src with your Spotify embed link -->
             <iframe
-              id="spotifyEmbed"
               style="border-radius: 16px; width: 100%; height: 380px; border: 0;"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
-              src="https://open.spotify.com/playlist/1U5iyN4XycJmNQn2YN1nkD?si=jsk2xpjOSCCCzLwAdxPTgQ&pi=b_E4NGSdTbaQ4R_PLAYLIST_ID_HERE"
+              src="https://open.spotify.com/embed/playlist/PUT_YOUR_PLAYLIST_ID_HERE"
             ></iframe>
-            <p class="tiny">https://open.spotify.com/playlist/1U5iyN4XycJmNQn2YN1nkD?si=jsk2xpjOSCCCzLwAdxPTgQ&pi=b_E4NGSdTbaQ4 <b>index.html</b></p>
           </div>
 
           <div class="card">
             <h3>ANUSHKA’S FAV 💗</h3>
-            <img src="assets/fav/ANI.mp4" alt="Anushka fav" />
-            <p class="tiny">JUST FOR YOU ❤️</p>
+            <img id="fav-img" alt="Fav" />
           </div>
         </div>
 
         <div class="footer-cta">
-          <button class="btn btn-primary" data-next="layer-q1">
-            Let’s have a small quiz 📝
+          <button class="btn btn-primary" data-next="layer-final">
+            Thanks for saying YES 💖
           </button>
         </div>
       </div>
     </section>
 
-    <!-- ========== QUIZ LAYERS (4 questions) ========== -->
-    <section class="layer" id="layer-q1">
-      <div class="page">
-        <h2 class="page-title">Quiz 1/4</h2>
-        <div class="quiz">
-          <p class="quiz-q">Where did we have our most wholesome date?</p>
-          <div class="quiz-opts">
-            <button class="btn btn-ghost quizOpt">Beach</button>
-            <button class="btn btn-ghost quizOpt">Cafe</button>
-            <button class="btn btn-ghost quizOpt">Movie</button>
-            <button class="btn btn-ghost quizOpt">Home</button>
-          </div>
-        </div>
-        <div class="footer-cta">
-          <button class="btn btn-primary" data-next="layer-q2">Next ➜</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="layer" id="layer-q2">
-      <div class="page">
-        <h2 class="page-title">Quiz 2/4</h2>
-        <div class="quiz">
-          <p class="quiz-q">What’s my go-to mood when I miss you?</p>
-          <div class="quiz-opts">
-            <button class="btn btn-ghost quizOpt">Silent</button>
-            <button class="btn btn-ghost quizOpt">Extra clingy</button>
-            <button class="btn btn-ghost quizOpt">I act busy</button>
-            <button class="btn btn-ghost quizOpt">All of the above</button>
-          </div>
-        </div>
-        <div class="footer-cta">
-          <button class="btn btn-primary" data-next="layer-q3">Next ➜</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="layer" id="layer-q3">
-      <div class="page">
-        <h2 class="page-title">Quiz 3/4</h2>
-        <div class="quiz">
-          <p class="quiz-q">Pick the correct answer:</p>
-          <div class="quiz-opts">
-            <button class="btn btn-ghost quizOpt">Anirudh + Anushka = Forever</button>
-            <button class="btn btn-ghost quizOpt">Anirudh + Anushka = Always hungry</button>
-            <button class="btn btn-ghost quizOpt">Anirudh + Anushka = Travel mode</button>
-            <button class="btn btn-ghost quizOpt">All are true</button>
-          </div>
-        </div>
-        <div class="footer-cta">
-          <button class="btn btn-primary" data-next="layer-q4">Next ➜</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="layer" id="layer-q4">
-      <div class="page">
-        <h2 class="page-title">Quiz 4/4</h2>
-        <div class="quiz">
-          <p class="quiz-q">Final question: Will you be my Valentine? 💘</p>
-          <div class="quiz-opts">
-            <button class="btn btn-primary" id="finalYes">YES ❤️</button>
-          </div>
-        </div>
-        <div class="footer-cta">
-          <button class="btn btn-primary" id="finishBtn">Next ➜</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== FINAL ========== -->
+    <!-- FINAL -->
     <section class="layer" id="layer-final">
       <div class="center-card">
         <h1 class="title">THANKS FOR SAYING YES 💖</h1>

@@ -1,4 +1,17 @@
 // ========= Helpers =========
+function randInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// ========= Layer switching =========
 function showLayer(id){
   document.querySelectorAll(".layer").forEach(l => l.classList.remove("active"));
   const el = document.getElementById(id);
@@ -8,31 +21,19 @@ function showLayer(id){
   }
   el.classList.add("active");
 
-  const collage = document.getElementById("collageBg");
-  const darkBg = document.getElementById("darkBg");
-
-  if(id === "layer-ask"){
-    collage.style.display = "block";
-    darkBg.style.display = "block";
-  } else {
-    collage.style.display = "none";
-    darkBg.style.display = "block";
-  }
+  // Keep collage + dark background ON for all layers
+  document.getElementById("collageBg").style.display = "block";
+  document.getElementById("darkBg").style.display = "block";
 
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-// ========= Collage =========
+// ========= Collage (1000 available, pick 600-700 randomly) =========
 function buildCollage(){
   const container = document.getElementById("collageBg");
 
-  // ✅ YOU WILL PASTE ALL 1187 PATHS HERE
-  // Example:
-  // "assets/collage/IMG_001.jpg",
-  // "assets/collage/photo 2.png",
-  // ...
   const photos = [
-    "assets/collage/1.jpg","assets/collage/2.jpg","assets/collage/3.jpg","assets/collage/4.jpg",
+     "assets/collage/1.jpg","assets/collage/2.jpg","assets/collage/3.jpg","assets/collage/4.jpg",
     "assets/collage/5.jpg","assets/collage/6.jpg","assets/collage/7.jpg","assets/collage/8.jpg",
     "assets/collage/9.jpg","assets/collage/10.jpg","assets/collage/11.jpg","assets/collage/12.jpg",
     "assets/collage/13.jpg","assets/collage/14.jpg","assets/collage/15.jpg","assets/collage/16.jpg",
@@ -43,33 +44,33 @@ function buildCollage(){
     "assets/collage/33.jpeg","assets/collage/34.jpeg","assets/collage/35.jpeg","assets/collage/36.jpeg",
     "assets/collage/37.jpeg","assets/collage/38.jpeg","assets/collage/39.jpeg","assets/collage/40.jpeg",
     "assets/collage/41.jpg","assets/collage/42.jpg","assets/collage/43.jpg","assets/collage/44.jpg",
-    "assets/collage/45.PNG","assets/collage/46.PNG","assets/collage/47.PNG","assets/collage/48.PNG",
+    "assets/collage/45.png","assets/collage/46.png","assets/collage/47.png","assets/collage/48.png",
     "assets/collage/49.jpg","assets/collage/50.jpg","assets/collage/51.jpg","assets/collage/52.jpg",
-    "assets/collage/53.PNG","assets/collage/54.PNG","assets/collage/55.PNG","assets/collage/56.PNG",
-    "assets/collage/57.PNG","assets/collage/58.PNG","assets/collage/59.PNG","assets/collage/60.PNG",
-    "assets/collage/61.PNG","assets/collage/62.PNG","assets/collage/63.PNG","assets/collage/64.PNG",
-    "assets/collage/65.jpeg","assets/collage/66.jpeg","assets/collage/67.jpeg","assets/collage/68.jpg",
-    "assets/collage/69.PNG","assets/collage/70.PNG","assets/collage/71.PNG","assets/collage/72.PNG",
+    "assets/collage/53.png","assets/collage/54.png","assets/collage/55.png","assets/collage/56.png",
+    "assets/collage/57.png","assets/collage/58.png","assets/collage/59.png","assets/collage/60.png",
+    "assets/collage/61.png","assets/collage/62.png","assets/collage/63.png","assets/collage/64.png",
+    "assets/collage/65.png","assets/collage/66.png","assets/collage/67.png","assets/collage/68.jpg",
+    "assets/collage/69.png","assets/collage/70.png","assets/collage/71.png","assets/collage/72.png",
     "assets/collage/73.jpg","assets/collage/74.jpg","assets/collage/75.jpg","assets/collage/76.jpg",
     "assets/collage/77.jpg","assets/collage/78.jpg","assets/collage/79.jpg","assets/collage/80.jpg",
     "assets/collage/81.jpg","assets/collage/82.jpg","assets/collage/83.jpg","assets/collage/84.jpg",
     "assets/collage/85.jpg","assets/collage/86.jpg","assets/collage/87.jpg","assets/collage/88.jpg",
     "assets/collage/89.jpg","assets/collage/90.jpg","assets/collage/91.jpg","assets/collage/92.jpg",
     "assets/collage/93.jpg","assets/collage/94.jpg","assets/collage/95.jpg","assets/collage/96.jpg",
-    "assets/collage/97.jpg","assets/collage/98.PNG","assets/collage/99.PNG","assets/collage/100.PNG",
-    "assets/collage/101.PNG","assets/collage/102.PNG","assets/collage/103.PNG","assets/collage/104.PNG",
-    "assets/collage/105.PNG","assets/collage/106.PNG","assets/collage/107.PNG","assets/collage/108.PNG",
-    "assets/collage/109.PNG","assets/collage/110.jpg","assets/collage/111.jpg","assets/collage/112.jpg",
+    "assets/collage/97.jpg","assets/collage/98.png","assets/collage/99.png","assets/collage/100.png",
+    "assets/collage/101.png","assets/collage/102.png","assets/collage/103.png","assets/collage/104.png",
+    "assets/collage/105.png","assets/collage/106.png","assets/collage/107.png","assets/collage/108.png",
+    "assets/collage/109.png","assets/collage/110.jpg","assets/collage/111.jpg","assets/collage/112.jpg",
     "assets/collage/113.jpg","assets/collage/114.jpg","assets/collage/115.jpg","assets/collage/116.jpg",
     "assets/collage/117.jpg","assets/collage/118.jpg","assets/collage/119.jpg","assets/collage/120.jpg",
     "assets/collage/121.jpg","assets/collage/122.jpg","assets/collage/123.jpg","assets/collage/124.jpg",
     "assets/collage/125.jpg","assets/collage/126.jpg","assets/collage/127.jpg","assets/collage/128.jpg",
-    "assets/collage/129.jpg","assets/collage/130.jpg","assets/collage/131.PNG","assets/collage/132.PNG",
-    "assets/collage/133.PNG","assets/collage/134.PNG","assets/collage/135.PNG","assets/collage/136.PNG",
-    "assets/collage/137.PNG","assets/collage/138.PNG","assets/collage/139.jpg","assets/collage/140.PNG",
-    "assets/collage/141.PNG","assets/collage/142.PNG","assets/collage/143.PNG","assets/collage/144.jpg",
-    "assets/collage/145.PNG","assets/collage/146.jpg","assets/collage/147.PNG","assets/collage/148.PNG",
-    "assets/collage/149.PNG","assets/collage/150.PNG","assets/collage/151.PNG","assets/collage/152.jpg",
+    "assets/collage/129.jpg","assets/collage/130.jpg","assets/collage/131.png","assets/collage/132.png",
+    "assets/collage/133.png","assets/collage/134.png","assets/collage/135.png","assets/collage/136.png",
+    "assets/collage/137.png","assets/collage/138.png","assets/collage/139.jpg","assets/collage/140.png",
+    "assets/collage/141.png","assets/collage/142.png","assets/collage/143.png","assets/collage/144.png",
+    "assets/collage/145.png","assets/collage/146.jpg","assets/collage/147.png","assets/collage/148.png",
+    "assets/collage/149.png","assets/collage/150.png","assets/collage/151.png","assets/collage/152.jpg",
     "assets/collage/153.jpg","assets/collage/154.jpg","assets/collage/155.jpg","assets/collage/156.jpg",
     "assets/collage/157.jpg","assets/collage/158.jpg","assets/collage/159.jpeg","assets/collage/160.jpg",
     "assets/collage/161.jpg","assets/collage/162.jpg","assets/collage/163.jpg","assets/collage/164.jpg",
@@ -80,10 +81,10 @@ function buildCollage(){
     "assets/collage/181.jpg","assets/collage/182.jpg","assets/collage/183.jpg","assets/collage/184.jpg",
     "assets/collage/185.jpg","assets/collage/186.jpg","assets/collage/187.jpg","assets/collage/188.jpg",
     "assets/collage/189.jpg","assets/collage/190.jpg","assets/collage/191.jpg","assets/collage/192.jpg",
-    "assets/collage/193.jpg","assets/collage/194.jpg","assets/collage/195.PNG","assets/collage/196.PNG",
+    "assets/collage/193.jpg","assets/collage/194.jpg","assets/collage/195.png","assets/collage/196.png",
     "assets/collage/197.jpg","assets/collage/198.jpg","assets/collage/199.jpg","assets/collage/200.jpg",
-    "assets/collage/201.jpg","assets/collage/202.PNG","assets/collage/203.PNG","assets/collage/204.PNG",
-    "assets/collage/205.PNG","assets/collage/206.jpg","assets/collage/207.jpg","assets/collage/208.jpg",
+    "assets/collage/201.jpg","assets/collage/202.png","assets/collage/203.png","assets/collage/204.png",
+    "assets/collage/205.png","assets/collage/206.jpg","assets/collage/207.jpg","assets/collage/208.jpg",
     "assets/collage/209.jpg","assets/collage/210.jpg","assets/collage/211.jpg","assets/collage/212.jpg",
     "assets/collage/213.jpg","assets/collage/214.jpg","assets/collage/215.jpg","assets/collage/216.jpg",
     "assets/collage/217.jpg","assets/collage/218.jpg","assets/collage/219.jpg","assets/collage/220.jpg",  
@@ -94,11 +95,11 @@ function buildCollage(){
     "assets/collage/237.jpg","assets/collage/238.jpg","assets/collage/239.jpg","assets/collage/240.jpg",
     "assets/collage/241.jpg","assets/collage/242.jpg","assets/collage/243.jpg","assets/collage/244.jpg",
     "assets/collage/245.jpg","assets/collage/246.jpg","assets/collage/247.jpg","assets/collage/248.jpg",
-    "assets/collage/249.jpg","assets/collage/250.PNG","assets/collage/251.PNG","assets/collage/252.PNG",
-    "assets/collage/253.PNG","assets/collage/254.jpg","assets/collage/255.jpg","assets/collage/256.jpg",
-    "assets/collage/257.jpg","assets/collage/258.jpg","assets/collage/259.jpg","assets/collage/260.PNG",
-    "assets/collage/261.PNG","assets/collage/262.PNG","assets/collage/263.PNG","assets/collage/264.PNG",
-    "assets/collage/265.PNG","assets/collage/266.jpg","assets/collage/267.jpg","assets/collage/268.jpg",
+    "assets/collage/249.jpg","assets/collage/250.png","assets/collage/251.png","assets/collage/252.png",
+    "assets/collage/253.png","assets/collage/254.jpg","assets/collage/255.jpg","assets/collage/256.jpg",
+    "assets/collage/257.jpg","assets/collage/258.jpg","assets/collage/259.jpg","assets/collage/260.png",
+    "assets/collage/261.png","assets/collage/262.png","assets/collage/263.png","assets/collage/264.png",
+    "assets/collage/265.png","assets/collage/266.jpg","assets/collage/267.jpg","assets/collage/268.jpg",
     "assets/collage/269.jpg","assets/collage/270.jpg","assets/collage/271.jpg","assets/collage/272.jpg",
     "assets/collage/273.jpg","assets/collage/274.jpg","assets/collage/275.jpg","assets/collage/276.jpg",
     "assets/collage/277.jpg","assets/collage/278.jpg","assets/collage/279.jpg","assets/collage/280.jpg",
@@ -135,12 +136,12 @@ function buildCollage(){
     "assets/collage/401.jpg","assets/collage/402.jpg","assets/collage/403.jpg","assets/collage/404.jpg",
     "assets/collage/405.jpg","assets/collage/406.jpg","assets/collage/407.jpg","assets/collage/408.jpg",
     "assets/collage/409.jpg","assets/collage/410.jpg","assets/collage/411.jpg","assets/collage/412.jpg",
-    "assets/collage/413.jpg","assets/collage/414.PNG","assets/collage/415.PNG","assets/collage/416.jpg",
-    "assets/collage/417.jpg","assets/collage/418.jpg","assets/collage/419.jpg","assets/collage/420.PNG",
-    "assets/collage/421.PNG","assets/collage/422.jpg","assets/collage/423.jpg","assets/collage/424.jpg",
-    "assets/collage/425.jpg","assets/collage/426.jpg","assets/collage/427.jpeg","assets/collage/428.jpg",
-    "assets/collage/429.jpeg","assets/collage/430.jpeg","assets/collage/431.jpg","assets/collage/432.jpeg",
-    "assets/collage/433.jpeg","assets/collage/434.jpeg","assets/collage/435.jpeg","assets/collage/436.jpg",
+    "assets/collage/413.jpg","assets/collage/414.png","assets/collage/415.png","assets/collage/416.jpg",
+    "assets/collage/417.jpg","assets/collage/418.jpg","assets/collage/419.jpg","assets/collage/420.png",
+    "assets/collage/421.png","assets/collage/422.jpg","assets/collage/423.jpg","assets/collage/424.jpg",
+    "assets/collage/425.jpg","assets/collage/426.jpg","assets/collage/427.png","assets/collage/428.jpg",
+    "assets/collage/429.png","assets/collage/430.png","assets/collage/431.jpg","assets/collage/432.png",
+    "assets/collage/433.png","assets/collage/434.png","assets/collage/435.png","assets/collage/436.jpg",
     "assets/collage/437.jpg","assets/collage/438.jpg","assets/collage/439.jpg","assets/collage/440.jpg",
     "assets/collage/441.jpg","assets/collage/442.jpg","assets/collage/443.jpg","assets/collage/444.jpg",
     "assets/collage/445.jpg","assets/collage/446.jpg","assets/collage/447.jpg","assets/collage/448.jpg",
@@ -250,21 +251,21 @@ function buildCollage(){
     "assets/collage/861.jpg","assets/collage/862.jpg","assets/collage/863.jpg","assets/collage/864.jpg",
     "assets/collage/865.jpg","assets/collage/866.jpg","assets/collage/867.jpg","assets/collage/868.jpg",
     "assets/collage/869.jpg","assets/collage/870.jpg","assets/collage/871.jpg","assets/collage/872.jpg",
-    "assets/collage/873.jpg","assets/collage/874.jpg","assets/collage/875.jpg","assets/collage/876.PNG",
-    "assets/collage/877.jpg","assets/collage/878.PNG","assets/collage/879.PNG","assets/collage/880.PNG",
-    "assets/collage/881.PNG","assets/collage/882.PNG","assets/collage/883.PNG","assets/collage/884.PNG",
-    "assets/collage/885.jpeg","assets/collage/886.jpg","assets/collage/887.jpg","assets/collage/888.jpg",
+    "assets/collage/873.jpg","assets/collage/874.jpg","assets/collage/875.jpg","assets/collage/876.png",
+    "assets/collage/877.jpg","assets/collage/878.png","assets/collage/879.png","assets/collage/880.png",
+    "assets/collage/881.png","assets/collage/882.png","assets/collage/883.png","assets/collage/884.png",
+    "assets/collage/885.png","assets/collage/886.jpg","assets/collage/887.jpg","assets/collage/888.jpg",
     "assets/collage/889.jpg","assets/collage/890.jpg","assets/collage/891.jpg","assets/collage/892.jpg",
     "assets/collage/893.jpg","assets/collage/894.jpg","assets/collage/895.jpg","assets/collage/896.jpg",
     "assets/collage/897.jpg","assets/collage/898.jpg","assets/collage/899.jpg","assets/collage/900.jpg",
     "assets/collage/901.jpg","assets/collage/902.jpg","assets/collage/903.jpg","assets/collage/904.jpg",
     "assets/collage/905.jpg","assets/collage/906.jpg","assets/collage/907.jpg","assets/collage/908.jpg",
-    "assets/collage/909.PNG","assets/collage/910.PNG","assets/collage/911.PNG","assets/collage/912.PNG",
-    "assets/collage/913.PNG","assets/collage/914.jpeg","assets/collage/915.jpeg","assets/collage/916.jpeg",
+    "assets/collage/909.png","assets/collage/910.png","assets/collage/911.png","assets/collage/912.png",
+    "assets/collage/913.png","assets/collage/914.jpeg","assets/collage/915.jpeg","assets/collage/916.jpeg",
     "assets/collage/917.jpeg","assets/collage/918.jpeg","assets/collage/919.jpeg","assets/collage/920.jpeg",
     "assets/collage/921.jpeg","assets/collage/922.jpeg","assets/collage/923.jpeg","assets/collage/924.jpeg",
     "assets/collage/925.jpeg","assets/collage/926.jpeg","assets/collage/927.jpeg","assets/collage/928.jpeg",
-    "assets/collage/929.jpeg","assets/collage/930.jpeg","assets/collage/931.PNG","assets/collage/932.PNG",
+    "assets/collage/929.jpeg","assets/collage/930.jpeg","assets/collage/931.png","assets/collage/932.png",
     "assets/collage/933.jpeg","assets/collage/934.jpeg","assets/collage/935.jpeg","assets/collage/936.jpeg",
     "assets/collage/937.jpeg","assets/collage/938.jpeg","assets/collage/939.jpeg","assets/collage/940.jpeg",
     "assets/collage/941.jpeg","assets/collage/942.jpeg","assets/collage/943.jpeg","assets/collage/944.jpeg",
@@ -272,7 +273,7 @@ function buildCollage(){
     "assets/collage/949.jpeg","assets/collage/950.jpeg","assets/collage/951.jpeg","assets/collage/952.jpeg",
     "assets/collage/953.jpeg","assets/collage/954.jpeg","assets/collage/955.jpeg","assets/collage/956.jpeg",
     "assets/collage/957.jpeg","assets/collage/958.jpeg","assets/collage/959.jpeg","assets/collage/960.jpeg",
-    "assets/collage/961.jpeg","assets/collage/962.PNG","assets/collage/963.jpeg","assets/collage/964.jpeg",
+    "assets/collage/961.jpeg","assets/collage/962.png","assets/collage/963.jpeg","assets/collage/964.jpeg",
     "assets/collage/965.jpeg","assets/collage/966.jpeg","assets/collage/967.jpeg","assets/collage/968.jpeg",
     "assets/collage/969.jpg","assets/collage/970.jpg","assets/collage/971.jpg","assets/collage/972.jpg",
     "assets/collage/973.jpg","assets/collage/974.jpg","assets/collage/975.jpg","assets/collage/976.jpg",
@@ -296,8 +297,8 @@ function buildCollage(){
     "assets/collage/1045.jpg","assets/collage/1046.jpg","assets/collage/1047.jpg","assets/collage/1048.jpg",
     "assets/collage/1049.jpg","assets/collage/1050.jpg","assets/collage/1051.jpg","assets/collage/1052.jpg",
     "assets/collage/1053.jpg","assets/collage/1054.jpg","assets/collage/1055.jpg","assets/collage/1056.jpg",
-    "assets/collage/1057.jpg","assets/collage/1058.PNG","assets/collage/1059.PNG","assets/collage/1060.PNG",
-    "assets/collage/1061.PNG","assets/collage/1062.PNG","assets/collage/1063.jpeg","assets/collage/1064.jpeg",
+    "assets/collage/1057.jpg","assets/collage/1058.png","assets/collage/1059.png","assets/collage/1060.png",
+    "assets/collage/1061.png","assets/collage/1062.png","assets/collage/1063.jpeg","assets/collage/1064.jpeg",
     "assets/collage/1065.jpeg","assets/collage/1066.jpeg","assets/collage/1067.jpeg","assets/collage/1068.jpeg",
     "assets/collage/1069.jpeg","assets/collage/1070.jpeg","assets/collage/1071.jpeg","assets/collage/1072.jpeg",
     "assets/collage/1073.jpeg","assets/collage/1074.jpeg","assets/collage/1075.jpeg","assets/collage/1076.jpeg",
@@ -331,73 +332,76 @@ function buildCollage(){
     "assets/collage/1185.jpg","assets/collage/1186.jpg","assets/collage/1187.jpg",
   ];
 
-  if(!photos.length){
-    container.innerHTML = `<div style="color:white;padding:16px;font-family:system-ui">
-      No photos in array. Add your collage paths inside script.js
-    </div>`;
-    return;
-  }
-
   container.innerHTML = "";
-  container.style.display = "block";
-  container.style.background = "#000";
-  container.style.position = "fixed";
-  container.style.inset = "0";
-  container.style.zIndex = "-3";
+  if(!photos.length) return;
+
+  // pick 600–700 from 1187
+  const pickCount = Math.min(photos.length, randInt(600, 700));
+  const picked = shuffle([...photos]).slice(0, pickCount);
+
+  // Grid sizing (tile size kept small for performance)
+  const tileSize = 44; // px
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+
+  const cols = Math.max(12, Math.floor(vw / tileSize));
+  const rows = Math.max(10, Math.floor(vh / tileSize));
 
   const grid = document.createElement("div");
-  grid.style.display = "grid";
-  grid.style.gap = "2px";
-  grid.style.height = "100%";
-  grid.style.width = "100%";
-
-  // Fit all images on screen (tiny)
-  const cols = 35; // increase to 40 for smaller tiles
-  const rows = Math.ceil(photos.length / cols);
+  grid.className = "collage-grid";
   grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-  grid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+  grid.style.gridAutoRows = `${tileSize}px`;
 
-  for(let i = 0; i < photos.length; i++){
+  // Create tiles as DIVs (not <img>) and lazy-load background-image
+  const frag = document.createDocumentFragment();
+
+  picked.forEach((src) => {
     const tile = document.createElement("div");
-    tile.style.background = "#111";
-    tile.style.overflow = "hidden";
-    tile.style.display = "flex";
-    tile.style.alignItems = "center";
-    tile.style.justifyContent = "center";
+    tile.className = "collage-tile";
+    tile.dataset.src = encodeURI(src); // keep for lazy load
+    frag.appendChild(tile);
+  });
 
-    const img = document.createElement("img");
-    img.src = encodeURI(photos[i]); // handles spaces
-    img.alt = "";
-    img.loading = "lazy";
-    img.style.width = "100%";
-    img.style.height = "100%";
-    img.style.objectFit = "contain";
-    img.style.background = "#111";
-
-    tile.appendChild(img);
-    grid.appendChild(tile);
-  }
-
-  const overlay = document.createElement("div");
-  overlay.style.position = "absolute";
-  overlay.style.inset = "0";
-  overlay.style.background = "rgba(0,0,0,.35)";
-
+  grid.appendChild(frag);
   container.appendChild(grid);
-  container.appendChild(overlay);
+
+  // Lazy load: only set background-image when tiles are near viewport
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const src = el.dataset.src;
+      if (src) {
+        el.style.backgroundImage = `url("${src}")`;
+        el.classList.add("is-loaded");
+        delete el.dataset.src;
+      }
+      io.unobserve(el);
+    });
+  }, { root: null, rootMargin: "400px", threshold: 0.01 });
+
+  grid.querySelectorAll(".collage-tile").forEach((t) => io.observe(t));
 }
 
-// ========= "No" button logic =========
+// throttle rebuild on resize
+let resizeTimer = null;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(buildCollage, 600);
+});
+
+// ========= No button logic =========
 let noClicks = 0;
 
 function moveNoButton(btn){
   const padding = 14;
+
   const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
   const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 
   const rect = btn.getBoundingClientRect();
-  const maxX = vw - rect.width - padding;
-  const maxY = vh - rect.height - padding;
+  const maxX = Math.max(padding, vw - rect.width - padding);
+  const maxY = Math.max(padding, vh - rect.height - padding);
 
   const x = Math.floor(Math.random() * (maxX - padding + 1)) + padding;
   const y = Math.floor(Math.random() * (maxY - padding + 1)) + padding;
@@ -416,11 +420,11 @@ function handleNoClick(){
   moveNoButton(btnNo);
 
   if(noClicks === 2){
-    hint.textContent = "Come on 😅";
+    hint.textContent = "Come on 😌";
   } else if(noClicks === 3){
-    hint.textContent = "Stop playing 😤";
+    hint.textContent = "Stop playing 😭";
   } else if(noClicks >= 4){
-    hint.textContent = "You are anyway saying yes ❤️";
+    hint.textContent = "You’re saying yes anyway ❤️";
     setTimeout(() => showLayer("layer-whyme"), 450);
   }
 }
@@ -439,6 +443,73 @@ function setupHoverVideos(){
   });
 }
 
+// ========= Media wiring (mp4/mov + jpg/jpeg/png) =========
+async function pickExisting(base, exts){
+  for(const ext of exts){
+    const url = `${base}.${ext}`;
+    try{
+      const res = await fetch(url, { method: "HEAD" });
+      if(res.ok) return url;
+    } catch(e){}
+  }
+  return null;
+}
+
+async function wireMedia(){
+  const imgExts = ["jpg","jpeg","png","JPG","JPEG","PNG"];
+  const vidExts = ["mp4","mov","MP4","MOV"];
+
+  // WHYME
+  const a1 = await pickExisting("assets/whyme/card1", imgExts);
+  const a3 = await pickExisting("assets/whyme/card3", imgExts);
+  const v2 = await pickExisting("assets/whyme/card2", vidExts);
+  const v4 = await pickExisting("assets/whyme/card4", vidExts);
+
+  if(a1) document.getElementById("whyme-img1").src = a1;
+  if(a3) document.getElementById("whyme-img3").src = a3;
+  if(v2) document.getElementById("whyme-vid2").src = v2;
+  if(v4) document.getElementById("whyme-vid4").src = v4;
+
+  // WHYONLY
+  const w1 = await pickExisting("assets/whyonly/c1", imgExts);
+  const w3 = await pickExisting("assets/whyonly/c3", imgExts);
+  const w5 = await pickExisting("assets/whyonly/c5", imgExts);
+  const w2 = await pickExisting("assets/whyonly/c2", vidExts);
+  const w4 = await pickExisting("assets/whyonly/c4", vidExts);
+  const w6 = await pickExisting("assets/whyonly/c6", vidExts);
+
+  if(w1) document.getElementById("whyonly-img1").src = w1;
+  if(w3) document.getElementById("whyonly-img3").src = w3;
+  if(w5) document.getElementById("whyonly-img5").src = w5;
+  if(w2) document.getElementById("whyonly-vid2").src = w2;
+  if(w4) document.getElementById("whyonly-vid4").src = w4;
+  if(w6) document.getElementById("whyonly-vid6").src = w6;
+
+  // STORY
+  const s1 = await pickExisting("assets/story/s1", imgExts);
+  const s3 = await pickExisting("assets/story/s3", imgExts);
+  const s5 = await pickExisting("assets/story/s5", imgExts);
+  const s7 = await pickExisting("assets/story/s7", imgExts);
+  const sv2 = await pickExisting("assets/story/s2", vidExts);
+  const sv4 = await pickExisting("assets/story/s4", vidExts);
+  const sv6 = await pickExisting("assets/story/s6", vidExts);
+  const sv8 = await pickExisting("assets/story/s8", vidExts);
+
+  if(s1) document.getElementById("story-img1").src = s1;
+  if(s3) document.getElementById("story-img3").src = s3;
+  if(s5) document.getElementById("story-img5").src = s5;
+  if(s7) document.getElementById("story-img7").src = s7;
+
+  if(sv2) document.getElementById("story-vid2").src = sv2;
+  if(sv4) document.getElementById("story-vid4").src = sv4;
+  if(sv6) document.getElementById("story-vid6").src = sv6;
+  if(sv8) document.getElementById("story-vid8").src = sv8;
+
+  // FAV
+  const fav = await pickExisting("assets/fav/fav1", imgExts);
+  if(fav) document.getElementById("fav-img").src = fav;
+}
+
 // ========= Wire buttons =========
 function wireButtons(){
   document.getElementById("btnYes").addEventListener("click", () => showLayer("layer-whyme"));
@@ -447,15 +518,15 @@ function wireButtons(){
   document.querySelectorAll("[data-next]").forEach(btn => {
     btn.addEventListener("click", () => showLayer(btn.getAttribute("data-next")));
   });
-
-  const finishBtn = document.getElementById("finishBtn");
-  const finalYes = document.getElementById("finalYes");
-  if(finishBtn) finishBtn.addEventListener("click", () => showLayer("layer-final"));
-  if(finalYes) finalYes.addEventListener("click", () => showLayer("layer-final"));
 }
 
 // ========= Start =========
-buildCollage();
-wireButtons();
-setupHoverVideos();
-showLayer("layer-ask");
+(async function init(){
+  // build collage after a tiny delay so page paints first
+  setTimeout(buildCollage, 150);
+
+  await wireMedia();
+  wireButtons();
+  setupHoverVideos();
+  showLayer("layer-ask");
+})();

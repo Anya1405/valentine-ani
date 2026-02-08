@@ -16,7 +16,6 @@ body{
   overflow-x:hidden;
 }
 
-/* BACKGROUNDS */
 .collage-bg{
   position: fixed;
   inset: 0;
@@ -83,7 +82,6 @@ body{
   color: rgba(255,255,255,.75);
 }
 
-/* BUTTONS */
 .btn-row{
   display:flex;
   gap: 12px;
@@ -115,11 +113,7 @@ body{
 }
 .tiny{ font-size: 13px; color: rgba(0,0,0,.55); margin-top: 14px; }
 
-/* GRIDS */
-.grid{
-  display:grid;
-  gap: 16px;
-}
+.grid{ display:grid; gap: 16px; }
 .grid-2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .grid-4{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .grid-6{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -134,7 +128,6 @@ body{
   .grid-6{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* FLIP CARDS */
 .flip-card{
   perspective: 1100px;
   height: 220px;
@@ -178,7 +171,6 @@ body{
   display:block;
 }
 
-/* NORMAL CARDS */
 .card{
   background: rgba(255,255,255,.10);
   border: 1px solid rgba(255,255,255,.16);
@@ -194,11 +186,7 @@ body{
   border-radius: 14px;
 }
 
-/* PLAN */
-.plan{
-  display:grid;
-  gap: 12px;
-}
+.plan{ display:grid; gap: 12px; }
 .plan-item{
   display:flex;
   gap: 14px;
@@ -213,29 +201,8 @@ body{
   color: rgba(255,255,255,.92);
   min-width: 86px;
 }
-.plan-item p{
-  margin:0;
-  color: rgba(255,255,255,.8);
-}
+.plan-item p{ margin:0; color: rgba(255,255,255,.8); }
 
-/* QUIZ */
-.quiz{
-  background: rgba(255,255,255,.10);
-  border: 1px solid rgba(255,255,255,.16);
-  border-radius: var(--radius);
-  padding: 18px;
-  box-shadow: 0 16px 44px rgba(0,0,0,.25);
-}
-.quiz-q{
-  margin: 0 0 14px 0;
-  font-size: 18px;
-  font-weight: 700;
-}
-.quiz-opts{
-  display:flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
 .footer-cta{
   margin-top: 20px;
   display:flex;
